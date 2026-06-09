@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using PPO_projekt.MAUI.WinUI;
-
-namespace PPO_projekt.MAUI;
+﻿namespace PPO_projekt.MAUI;
 
 public static class MauiProgram
 {
@@ -15,10 +12,6 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
 
 		return builder.Build();
 	}

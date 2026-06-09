@@ -1,14 +1,16 @@
-﻿namespace PPO_projekt.MAUI;
+﻿using Microsoft.Maui.Controls;
 
-public partial class App : Application
+namespace PPO_projekt.MAUI;
+
+public partial class App : Microsoft.Maui.Controls.Application
 {
-	public App()
-	{
-		InitializeComponent();
-	}
+    public App()
+    {
+        InitializeComponent();
+    }
 
-	protected override Window CreateWindow(IActivationState? activationState)
-	{
-		return new Window(new AppShell());
-	}
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        return new Window(new AppShell());
+    }
 }
