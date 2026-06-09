@@ -7,4 +7,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\PPO_projekt.Domain\PPO_projekt.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
