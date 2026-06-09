@@ -1,22 +1,24 @@
-﻿using PPO_projekt.Application.Services;
-using PPO_projekt.MAUI.ViewModels;
-using PPO_projekt.MAUI.Views;
+﻿using Microsoft.Extensions.Logging;
+
+namespace PPO_projekt.MAUI;
 
 public static class MauiProgram
 {
-    public static MauiApp CreateMauiApp()
-    {
-        var builder = MauiApp.CreateBuilder();
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
+		builder
+			.UseMauiApp<App>()
+			.ConfigureFonts(fonts =>
+			{
+				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			});
 
-        builder
-            .UseMauiApp<App>();
+#if DEBUG
+		builder.Logging.AddDebug();
+#endif
 
-        builder.Services.AddSingleton<SchoolService>();
-
-        builder.Services.AddTransient<MainViewModel>();
-
-        builder.Services.AddTransient<MainPage>();
-
-        return builder.Build();
-    }
+		return builder.Build();
+	}
 }

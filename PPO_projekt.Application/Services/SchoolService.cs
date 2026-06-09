@@ -1,5 +1,6 @@
-﻿namespace PPO_projekt.Application.Services;
-using PPO_projekt.Domain.Entities;
+﻿using PPO_projekt.Domain.Entities;
+namespace PPO_projekt.Application.Services;
+
 
 public class SchoolService
 {
