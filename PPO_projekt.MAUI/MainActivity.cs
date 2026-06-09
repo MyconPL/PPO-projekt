@@ -1,4 +1,4 @@
-namespace AndroidApp1;
+namespace PPO_projekt.MAUI;
 
 [Activity(Label = "@string/app_name", MainLauncher = true)]
 public class MainActivity : Activity
