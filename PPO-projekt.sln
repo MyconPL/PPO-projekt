@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO-projekt.MAUI", "PPO-pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO-projekt.Domain", "PPO-projekt.Domain\PPO-projekt.Domain.csproj", "{978E1655-CA82-49FF-8602-85166887AD8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO-projekt.Application", "PPO-projekt.Application\PPO-projekt.Application.csproj", "{907B6F40-3270-4BE7-8513-A563FC29F1B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{978E1655-CA82-49FF-8602-85166887AD8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{978E1655-CA82-49FF-8602-85166887AD8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{978E1655-CA82-49FF-8602-85166887AD8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{907B6F40-3270-4BE7-8513-A563FC29F1B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{907B6F40-3270-4BE7-8513-A563FC29F1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{907B6F40-3270-4BE7-8513-A563FC29F1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{907B6F40-3270-4BE7-8513-A563FC29F1B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
