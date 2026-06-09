@@ -1,4 +1,4 @@
-﻿namespace PPO_projekt.Domain.Entites;
+﻿namespace PPO_projekt.Domain.Entities;
 
 public class Student
 {
