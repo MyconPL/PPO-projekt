@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO-projekt.MAUI", "PPO-projekt.MAUI\PPO-projekt.MAUI.csproj", "{132CE754-031A-4EC7-8AF5-EDBFF068D593}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO-projekt.Domain", "PPO-projekt.Domain\PPO-projekt.Domain.csproj", "{978E1655-CA82-49FF-8602-85166887AD8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{132CE754-031A-4EC7-8AF5-EDBFF068D593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{132CE754-031A-4EC7-8AF5-EDBFF068D593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{132CE754-031A-4EC7-8AF5-EDBFF068D593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978E1655-CA82-49FF-8602-85166887AD8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978E1655-CA82-49FF-8602-85166887AD8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978E1655-CA82-49FF-8602-85166887AD8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978E1655-CA82-49FF-8602-85166887AD8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
