@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidApp1", "AndroidApp1\AndroidApp1.csproj", "{132CE754-031A-4EC7-8AF5-EDBFF068D593}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO-projekt.MAUI", "PPO-projekt.MAUI\PPO-projekt.MAUI.csproj", "{132CE754-031A-4EC7-8AF5-EDBFF068D593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
