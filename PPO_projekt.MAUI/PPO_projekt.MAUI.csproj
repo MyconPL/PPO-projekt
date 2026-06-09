@@ -61,4 +61,9 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0-rc.1.25451.107" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\PPO_projekt.Application\PPO_projekt.Application.csproj" />
+	  <ProjectReference Include="..\PPO_projekt.Domain\PPO_projekt.Domain.csproj" />
+	</ItemGroup>
+
 </Project>
