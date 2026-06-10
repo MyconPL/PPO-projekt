@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Android.Runtime;
+using Foundation;
 
 namespace PPO_projekt.MAUI;
 
