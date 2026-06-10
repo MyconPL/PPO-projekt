@@ -1,40 +1,102 @@
-﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SchoolApp.Maui.Views.MainPage">
+             xmlns:viewmodels="clr-namespace:PPO_projekt.MAUI.ViewModels"
+             x:DataType="viewmodels:SchoolViewModel"
+             x:Class="PPO_projekt.MAUI.MainPage"
+             Title="Dziennik Szkolny PPO">
 
-    <VerticalStackLayout Padding="20" Spacing="10">
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="25" MaximumWidthRequest="600" HorizontalOptions="CenterAndExpand">
+            
+            <Label Text="Panel Zarządzania Szkołą" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="{StaticResource Primary}"/>
 
-        <Label Text="School App" FontSize="28" />
+            <!-- SEKCJA 1: DODAWANIE -->
+            <Frame BorderColor="{StaticResource Primary}" Padding="15" CornerRadius="10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Dodaj nowe obiekty" FontAttributes="Bold" FontSize="18"/>
+                    
+                    <!-- Student -->
+                    <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                        <Entry Placeholder="Imię i nazwisko ucznia" Text="{Binding StudentName}"/>
+                        <Button Grid.Column="1" Text="Dodaj Ucznia" Command="{Binding AddStudentCommand}"/>
+                    </Grid>
 
-        <!-- ADD STUDENT -->
-        <Entry Placeholder="Student name"
-               Text="{Binding NewStudentName}" />
+                    <!-- Przedmiot -->
+                    <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                        <Entry Placeholder="Nazwa przedmiotu" Text="{Binding SubjectName}"/>
+                        <Button Grid.Column="1" Text="Dodaj Przedmiot" Command="{Binding AddSubjectCommand}"/>
+                    </Grid>
 
-        <Button Text="Add student"
-                Clicked="OnAddStudentClicked" />
+                    <!-- Nauczyciel -->
+                    <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                        <Entry Placeholder="Imię i nazwisko nauczyciela" Text="{Binding TeacherName}"/>
+                        <Button Grid.Column="1" Text="Dodaj Nauczyciela" Command="{Binding AddTeacherCommand}"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
 
-        <!-- ADD GRADE -->
-        <Entry Placeholder="Student name"
-               Text="{Binding GradeStudentName}" />
+            <!-- SEKCJA 2: RELACJE I OPERACJE -->
+            <Frame BorderColor="Gray" Padding="15" CornerRadius="10">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Operacje i Przypisania" FontAttributes="Bold" FontSize="18"/>
 
-        <Entry Placeholder="Grade (1-6)"
-               Keyboard="Numeric"
-               Text="{Binding GradeValue}" />
-
-        <Button Text="Add grade"
-                Clicked="OnAddGradeClicked" />
-
-        <!-- STUDENTS LIST -->
-        <CollectionView ItemsSource="{Binding Students}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout>
-                        <Label Text="{Binding Name}" FontSize="18"/>
+                    <!-- Przypisz ucznia do przedmiotu -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Przypisz ucznia do przedmiotu:" FontSize="14"/>
+                        <Grid ColumnDefinitions="*, *, Auto" ColumnSpacing="10">
+                            <Picker Title="Wybierz ucznia" 
+                                    ItemsSource="{Binding Students}" 
+                                    ItemDisplayBinding="{Binding Name}"
+                                    SelectedItem="{Binding SelectedStudent}"/>
+                            <Picker Grid.Column="1" Title="Wybierz przedmiot" 
+                                    ItemsSource="{Binding Subjects}" 
+                                    ItemDisplayBinding="{Binding Name}"
+                                    SelectedItem="{Binding SelectedSubject}"/>
+                            <Button Grid.Column="2" Text="Zapisz" Command="{Binding AssignStudentToSubjectCommand}"/>
+                        </Grid>
                     </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                    
+                    <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
 
-    </VerticalStackLayout>
+                    <!-- Przypisz przedmiot do nauczyciela -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Przypisz przedmiot nauczycielowi:" FontSize="14"/>
+                        <Grid ColumnDefinitions="*, *, Auto" ColumnSpacing="10">
+                            <Picker Title="Wybierz przedmiot" 
+                                    ItemsSource="{Binding Subjects}" 
+                                    ItemDisplayBinding="{Binding Name}"
+                                    SelectedItem="{Binding SelectedSubject}"/>
+                            <Picker Grid.Column="1" Title="Wybierz nauczyciela" 
+                                    ItemsSource="{Binding Teachers}" 
+                                    ItemDisplayBinding="{Binding Name}"
+                                    SelectedItem="{Binding SelectedTeacher}"/>
+                            <Button Grid.Column="2" Text="Zapisz" Command="{Binding AssignSubjectToTeacherCommand}"/>
+                        </Grid>
+                    </VerticalStackLayout>
 
+                    <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
+
+                    <!-- Dodawanie Oceny -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Wystaw ocenę uczniowi:" FontSize="14"/>
+                        <Grid ColumnDefinitions="*, 80, Auto" ColumnSpacing="10">
+                            <Picker Title="Wybierz ucznia" 
+                                    ItemsSource="{Binding Students}" 
+                                    ItemDisplayBinding="{Binding Name}"
+                                    SelectedItem="{Binding GradeSelectedStudent}"/>
+                            <Entry Grid.Column="1" Placeholder="Ocena" Keyboard="Numeric" Text="{Binding GradeInput}"/>
+                            <Button Grid.Column="2" Text="Dodaj ocenę" Command="{Binding AddGradeCommand}" BackgroundColor="Green"/>
+                        </Grid>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Frame>
+            
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

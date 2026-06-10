@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO_projekt.Domain", "PPO_p
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO_projekt.Application", "PPO_projekt.Application\PPO_projekt.Application.csproj", "{907B6F40-3270-4BE7-8513-A563FC29F1B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO_projekt.MAUI", "PPO_projekt.MAUI\PPO_projekt.MAUI.csproj", "{0193264A-BE52-4F01-89D6-356A517CCC43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPO_projekt.MAUI", "PPO_projekt.MAUI\PPO_projekt.MAUI.csproj", "{EBBC7BA1-78BF-4D6E-A4E7-272F33298695}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{907B6F40-3270-4BE7-8513-A563FC29F1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{907B6F40-3270-4BE7-8513-A563FC29F1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{907B6F40-3270-4BE7-8513-A563FC29F1B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0193264A-BE52-4F01-89D6-356A517CCC43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0193264A-BE52-4F01-89D6-356A517CCC43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0193264A-BE52-4F01-89D6-356A517CCC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0193264A-BE52-4F01-89D6-356A517CCC43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBBC7BA1-78BF-4D6E-A4E7-272F33298695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBBC7BA1-78BF-4D6E-A4E7-272F33298695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBBC7BA1-78BF-4D6E-A4E7-272F33298695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBBC7BA1-78BF-4D6E-A4E7-272F33298695}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,21 +1,66 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>net10.0-android</TargetFramework>
-        <UseMaui>true</UseMaui>
-        <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
-        <OutputType>Exe</OutputType>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <ApplicationId>mrherbat.PPO_projekt.MAUI</ApplicationId>
-        <ApplicationVersion>1</ApplicationVersion>
-        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-        <!--
-          Enables trim analyzers and full trimming during Release mode.
-          To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/trimming-options#trimming-granularity
-        -->
-        <TrimMode>full</TrimMode>
-    </PropertyGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\PPO_projekt.Application\PPO_projekt.Application.csproj" />
-    </ItemGroup>
+
+	<PropertyGroup>
+		<TargetFrameworks>net10.0-android</TargetFrameworks>
+		<AcceptAndroidSDKLicenses>True</AcceptAndroidSDKLicenses>
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>PPO_projekt.MAUI</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>PPO_projekt.MAUI</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.ppo_projekt.maui</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+		<WindowsPackageType>None</WindowsPackageType>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+	</PropertyGroup>
+	
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PPO_projekt.Application\PPO_projekt.Application.csproj" />
+	  <ProjectReference Include="..\PPO_projekt.Domain\PPO_projekt.Domain.csproj" />
+	</ItemGroup>
+	
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+	  <PackageReference Include="Microsoft.Maui.Controls.Core" Version="10.0.70" />
+	  <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.0-rc.1.25452.6" />
+	  <PackageReference Include="Microsoft.Maui.Core" Version="10.0.70" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+	  <Compile Remove="Platforms\Windows\**\*.cs" />
+	  <Compile Remove="Platforms\iOS\**\*.cs" />
+	  <Compile Remove="Platforms\MacCatalyst\**\*.cs" />
+	  <MauiXaml Remove="Platforms\Windows\App.xaml" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
+	  <Compile Remove="Platforms\Android\**\*.cs" />
+	  <Compile Remove="Platforms\iOS\**\*.cs" />
+	  <Compile Remove="Platforms\MacCatalyst\**\*.cs" />
+	</ItemGroup>
+
 </Project>

@@ -1,26 +1,19 @@
-﻿using PPO_projekt.MAUI.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using PPO_projekt.MAUI.ViewModels;
 
-namespace PPO_projekt.MAUI.Views;
+namespace PPO_projekt.MAUI;
 
 public partial class MainPage : ContentPage
 {
-    private readonly MainViewModel _vm;
+    public MainPage()
+        : this(App.Current?.Handler?.MauiContext?.Services?.GetRequiredService<SchoolViewModel>()
+            ?? throw new InvalidOperationException("SchoolViewModel is not available."))
+    {
+    }
 
-    public MainPage(MainViewModel vm)
+    public MainPage(SchoolViewModel viewModel)
     {
         InitializeComponent();
-
-        _vm = vm;
-        BindingContext = _vm;
-    }
-
-    private void OnAddStudentClicked(object sender, EventArgs e)
-    {
-        _vm.AddStudent();
-    }
-
-    private void OnAddGradeClicked(object sender, EventArgs e)
-    {
-        _vm.AddGrade();
+        BindingContext = viewModel; // Powiązanie widoku z logiką ViewModelu
     }
 }
